@@ -36,10 +36,54 @@ To write a Python program that:
 ---
 
 ## 💻 Program
-Add code here
+```
+"""Class representing a node in a singly linked list."""
+class Node:
+ def __init__(self, data):
+ self.data = data
+ self.next = None
+class LinkedList:
+ """Class representing a singly linked list."""
+ def __init__(self):
+ self.head = None
+ def append(self, data):
+ """Append a new node at the end of the list."""
+ new_node = Node(data)
+ if not self.head:
+ self.head = new_node
+ return
+ temp = self.head
+EX.NO:11(C)
+Singly Linked List : Find the Middle Node of a Singly
+Linked List Using Recursion
+ Saveetha Engineering College
+ while temp.next:
+ temp = temp.next
+ temp.next = new_node
+ def get_middle_recursive(self, slow, fast):
+ """Recursive function to find the middle node."""
+ if not fast or not fast.next:
+ return slow # Return the middle node
+ return self.get_middle_recursive(slow.next, fast.next.next)
+ def find_middle(self):
+ """Wrapper function to find the middle node."""
+ if not self.head:
+ return None
+ middle_node = self.get_middle_recursive(self.head, self.head)
+ return middle_node.data if middle_node else None
+n = int(input().strip()) # Number of elements
+arr = list(map(int, input().strip().split())) # Linked list elements
+# Create linked list and append elements
+ll = LinkedList()
+for num in arr:
+ ll.append(num)
+# Find and print middle element
+print(ll.find_middle())
+```
 
 ## Sample Input & Output
+<img width="309" height="141" alt="image" src="https://github.com/user-attachments/assets/dd58ee87-1843-4d90-9450-28e3e6368f1a" />
 
 ## Result
-
-
+Thus, the Python program has been created and executed successfully to find the middle node of
+a singly linked list using recursion for both even and odd-length lists as per the requirement.
